@@ -1,5 +1,42 @@
 # Getting Started with Create React App
 
+## react_uploader
+
+### description
+
+ImageUploader コンポーネント はローカル PC からファイルをアップロードする場合に使用する
+
+### usage
+
+- formImages: アップロードしたファイルの実態。バックエンドなどに送る際に使用する
+- previewImages: 画面上に表示するためのもの
+
+```
+const [formImages, setFormImages] = useState<(string | File)[]>([]);
+const [previewImages, setPreviewImages] = useState<string[]>([]);
+```
+
+ex: フォームデータとしてバックエンドに送信する。フォームデータとして送信する場合は`multipart/form-data`として送る。
+
+```
+const formData = new FormData();
+
+formImages.forEach((image) => {
+  formData.append("images", image);
+});
+
+const res = await axios.post(
+  `${process.env.REACT_APP_API_URL}/api/sample/`,
+  formData,
+  {
+    headers: {
+      "content-type": "multipart/form-data",
+    },
+  }
+);
+return res.data;
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import ImageUploader from "./components/ImageUploader";
+import { Box, Typography } from "@mui/material";
 
 function App() {
+  const [formImages, setFormImages] = useState<(string | File)[]>([]);
+  const [previewImages, setPreviewImages] = useState<string[]>([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      sx={{
+        p: 2,
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <Box>
+        <Typography variant="h2">Image Uploader</Typography>
+      </Box>
+      <Box>
+        <ImageUploader
+          formImages={formImages}
+          setFormImages={setFormImages}
+          previewImages={previewImages}
+          setPreviewImages={setPreviewImages}
+        />
+      </Box>
+    </Box>
   );
 }
 
