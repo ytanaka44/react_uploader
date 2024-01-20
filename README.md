@@ -8,6 +8,8 @@
 
 ### usage
 
+![upload-sample](assets/image.png)
+
 - formImages: アップロードしたファイルの実態。バックエンドなどに送る際に使用する
 - previewImages: 画面上に表示するためのもの
 
