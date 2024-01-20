@@ -4,7 +4,7 @@
 
 ### description
 
-ImageUploader コンポーネント はローカル PC からファイルをアップロードする場合に使用する
+[ImageUploader](uploader/src/components/ImageUploader.tsx) コンポーネント はローカル PC からファイルをアップロードする場合に使用する
 
 ### usage
 
